@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="retry">Retry</string>
+    <string name="close">Close</string>
+    <string name="content_description_procedure_image">Procedure image</string>
+    <string name="content_description_favorite">Favorite</string>
+    <string name="phases_count">Phases: %1$s</string>
+    <string name="duration">Duration: %1$s minutes</string>
+    <string name="created_on">Created on: %1$s</string>
+    <string name="phases">Phases</string>
+    <string name="button_close">Close</string>
+    <string name="content_description_phase_image">Phase Image</string>
+    <string name="unknown_error">Unknown</string>
+</resources>

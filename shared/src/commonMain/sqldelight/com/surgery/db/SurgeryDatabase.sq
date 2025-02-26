@@ -1,0 +1,54 @@
+CREATE TABLE ProcedureEntity (
+    uuid TEXT PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    icon TEXT NOT NULL,
+    phasesCount INTEGER NOT NULL,
+    duration INTEGER NOT NULL,
+    creationDate TEXT NOT NULL,
+    isFavorite INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE PhaseEntity (
+    uuid TEXT PRIMARY KEY NOT NULL,
+    procedureUuid TEXT NOT NULL REFERENCES ProcedureEntity(uuid) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    icon TEXT NOT NULL
+);
+
+selectAllProcedures:
+SELECT * FROM ProcedureEntity;
+
+searchProcedures:
+SELECT * FROM ProcedureEntity WHERE name LIKE ?;
+
+selectProcedureById:
+SELECT * FROM ProcedureEntity WHERE uuid = ?;
+
+insertProcedure:
+INSERT INTO ProcedureEntity (uuid, name, icon, phasesCount, duration, creationDate, isFavorite)
+VALUES (?, ?, ?, ?, ?, ?, ?);
+
+selectPhasesForProcedure:
+SELECT * FROM PhaseEntity WHERE procedureUuid = ?;
+
+insertPhase:
+INSERT INTO PhaseEntity (uuid, procedureUuid, name, icon)
+VALUES (?, ?, ?, ?);
+
+deletePhasesForProcedure:
+DELETE FROM PhaseEntity WHERE procedureUuid = ?;
+
+deleteAllProcedures:
+DELETE FROM ProcedureEntity;
+
+updateProcedureFavorite:
+UPDATE ProcedureEntity SET isFavorite = ? WHERE uuid = ?;
+
+selectFavoriteProcedureUuid:
+SELECT uuid FROM ProcedureEntity WHERE isFavorite = 1;
+
+selectFavoriteProcedure:
+SELECT * FROM ProcedureEntity WHERE isFavorite = 1;
+
+searchsFavoriteProcedure:
+SELECT * FROM ProcedureEntity WHERE name LIKE ? AND isFavorite = 1;
