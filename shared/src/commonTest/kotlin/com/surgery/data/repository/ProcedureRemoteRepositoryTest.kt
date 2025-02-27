@@ -114,7 +114,7 @@ class ProcedureRemoteRepositoryTest {
             phasesCount = 3,
             duration = 60,
             creationDate = "2015-04-14T10:00:51.940581",
-            isFavorite = 0,
+            isFavorite = false,
         )
 
         val procedureEntity2 = ProcedureEntity(
@@ -124,7 +124,7 @@ class ProcedureRemoteRepositoryTest {
             phasesCount = 2,
             duration = 45,
             creationDate = "2015-04-14T10:00:51.940581",
-            isFavorite = 1,
+            isFavorite = true,
         )
 
         val procedureDto1 = ProcedureDto(
@@ -175,7 +175,7 @@ class ProcedureRemoteRepositoryTest {
             icon = "icon1",
             phasesCount = 1,
             isFavorite = true,
-            phases = null
+            phases = null,
         )
         val procedureDetailsDto = ProcedureDetailsDto(
             uuid = "1",
@@ -198,7 +198,7 @@ class ProcedureRemoteRepositoryTest {
                     testMode = true,
                     uuid = "uuid",
                     viewed = true,
-                )
+                ),
             ),
             duration = 60,
             datePublished = "2015-04-14T10:00:51.940581",
@@ -211,7 +211,7 @@ class ProcedureRemoteRepositoryTest {
             card = CardDto(
                 url = "url",
                 uuid = "uuid",
-                version = 1
+                version = 1,
             ),
             channel = ChannelDto(
                 banner = BannerDto(

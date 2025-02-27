@@ -41,9 +41,9 @@ class MapperTest {
             name = "Procedure 1",
             icon = "icon1",
             phasesCount = 3,
-            duration = 60L,
+            duration = 60,
             creationDate = "2015-04-14T10:00:51.940581",
-            isFavorite = 0
+            isFavorite = false,
         )
 
         assertEquals(expectedEntity, procedureDto.toEntity())
@@ -81,10 +81,10 @@ class MapperTest {
             uuid = "1",
             name = "Procedure 1",
             icon = "icon1",
-            phasesCount = 1L,
-            duration = 60L,
+            phasesCount = 1,
+            duration = 60,
             creationDate = "2015-04-14T10:00:51.940581",
-            isFavorite = 1L
+            isFavorite = true,
         )
 
         val expectedDomain = Procedure(
@@ -95,7 +95,7 @@ class MapperTest {
             icon = "icon1",
             phasesCount = 1,
             isFavorite = true,
-            phases = null
+            phases = null,
         )
 
         assertEquals(expectedDomain, procedureEntity.toDomain())
@@ -107,13 +107,13 @@ class MapperTest {
             uuid = "1",
             name = "Phase 1",
             icon = "icon1",
-            procedureUuid = "procedure1"
+            procedureUuid = "procedure1",
         )
 
         val expectedDomain = Phase(
             uuid = "1",
             name = "Phase 1",
-            icon = "icon1"
+            icon = "icon1",
         )
 
         assertEquals(expectedDomain, phaseEntity.toDomain())
@@ -129,17 +129,17 @@ class MapperTest {
             icon = "icon1",
             phasesCount = 1,
             isFavorite = true,
-            phases = null
+            phases = null,
         )
 
         val expectedEntity = ProcedureEntity(
             uuid = "1",
             name = "Procedure 1",
             creationDate = "2015-04-14T10:00:51.940581",
-            duration = 60L,
+            duration = 60,
             icon = "icon1",
-            phasesCount = 1L,
-            isFavorite = 1L
+            phasesCount = 1,
+            isFavorite = true,
         )
 
         assertEquals(expectedEntity, procedure.toEntity())

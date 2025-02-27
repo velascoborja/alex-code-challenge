@@ -38,6 +38,7 @@ kotlin {
             implementation(libs.bundles.ktor)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.sqldelight.coroutines)
+            implementation(libs.sqldelight.primitive.adapters)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)

@@ -12,10 +12,10 @@ internal fun ProcedureDto.toEntity() = ProcedureEntity(
     uuid = uuid,
     name = name,
     icon = icon.url,
-    phasesCount = phases.size.toLong(),
-    duration = duration.toLong(),
+    phasesCount = phases.size,
+    duration = duration,
     creationDate = datePublished,
-    isFavorite = 0L,
+    isFavorite = false,
 )
 
 internal fun PhaseDto.toEntity(procedureUuid: String) = PhaseEntity(
@@ -32,7 +32,7 @@ internal fun ProcedureEntity.toDomain() = Procedure(
     duration = duration.toInt(),
     icon = icon,
     phasesCount = phasesCount.toInt(),
-    isFavorite = isFavorite != 0L,
+    isFavorite = isFavorite,
     phases = null,
 )
 
@@ -46,8 +46,8 @@ internal fun Procedure.toEntity() = ProcedureEntity(
     uuid = uuid,
     name = name,
     creationDate = creationDate.toString(),
-    duration = duration.toLong(),
+    duration = duration,
     icon = icon,
-    phasesCount = phasesCount.toLong(),
-    isFavorite = if (isFavorite) 1L else 0L,
+    phasesCount = phasesCount,
+    isFavorite = isFavorite,
 )

@@ -75,7 +75,7 @@ internal class SqlDelightDatabase(
     ) = withContext(context) {
         database.transaction {
             database.surgeryDatabaseQueries.updateProcedureFavorite(
-                isFavorite = if (isFavourite) 1L else 0L,
+                isFavorite = isFavourite,
                 uuid = procedureId,
             )
         }

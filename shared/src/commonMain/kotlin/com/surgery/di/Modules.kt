@@ -1,5 +1,6 @@
 package com.surgery.di
 
+import app.cash.sqldelight.adapter.primitive.IntColumnAdapter
 import app.cash.sqldelight.db.SqlDriver
 import com.surgery.data.local.Database
 import com.surgery.data.local.DatabaseDriverFactory
@@ -7,6 +8,7 @@ import com.surgery.data.local.SqlDelightDatabase
 import com.surgery.data.remote.ProcedureApiService
 import com.surgery.data.remote.ProcedureSource
 import com.surgery.data.repository.ProcedureRemoteRepository
+import com.surgery.db.ProcedureEntity
 import com.surgery.db.SurgeryDatabase
 import com.surgery.domain.repository.ProcedureRepository
 import com.surgery.domain.usecase.GetFavouriteProcedureListUseCase
@@ -35,7 +37,7 @@ fun commonModule() = module {
     single { GetFavouriteProcedureListUseCase(get()) }
     factory { ProceduresListViewModel(get(), get(), get(), get(), get()) }
 
-    single { SurgeryDatabase(get()) }
+    single { SurgeryDatabase(get(), ProcedureEntity.Adapter(IntColumnAdapter, IntColumnAdapter)) }
     single<Database> { SqlDelightDatabase(get()) }
     single<SqlDriver> { get<DatabaseDriverFactory>().create() }
 }

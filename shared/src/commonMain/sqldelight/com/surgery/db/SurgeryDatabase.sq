@@ -1,11 +1,14 @@
+import kotlin.Boolean;
+import kotlin.Int;
+
 CREATE TABLE ProcedureEntity (
     uuid TEXT PRIMARY KEY NOT NULL,
     name TEXT NOT NULL,
     icon TEXT NOT NULL,
-    phasesCount INTEGER NOT NULL,
-    duration INTEGER NOT NULL,
+    phasesCount INTEGER AS Int NOT NULL,
+    duration INTEGER AS Int NOT NULL,
     creationDate TEXT NOT NULL,
-    isFavorite INTEGER NOT NULL DEFAULT 0
+    isFavorite INTEGER AS Boolean NOT NULL DEFAULT 0
 );
 
 CREATE TABLE PhaseEntity (
@@ -20,9 +23,6 @@ SELECT * FROM ProcedureEntity;
 
 searchProcedures:
 SELECT * FROM ProcedureEntity WHERE name LIKE ?;
-
-selectProcedureById:
-SELECT * FROM ProcedureEntity WHERE uuid = ?;
 
 insertProcedure:
 INSERT INTO ProcedureEntity (uuid, name, icon, phasesCount, duration, creationDate, isFavorite)
