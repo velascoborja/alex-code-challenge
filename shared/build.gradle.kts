@@ -55,6 +55,9 @@ kotlin {
             implementation(libs.ktor.client.mock)
         }
 
+        androidUnitTest.dependencies {
+            implementation(libs.sqldelight.jvm)
+        }
     }
 }
 

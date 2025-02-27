@@ -1,7 +1,7 @@
 import kotlin.Boolean;
 import kotlin.Int;
 
-CREATE TABLE ProcedureEntity (
+CREATE TABLE IF NOT EXISTS ProcedureEntity (
     uuid TEXT PRIMARY KEY NOT NULL,
     name TEXT NOT NULL,
     icon TEXT NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE ProcedureEntity (
     isFavorite INTEGER AS Boolean NOT NULL DEFAULT 0
 );
 
-CREATE TABLE PhaseEntity (
+CREATE TABLE IF NOT EXISTS PhaseEntity (
     uuid TEXT PRIMARY KEY NOT NULL,
     procedureUuid TEXT NOT NULL REFERENCES ProcedureEntity(uuid) ON DELETE CASCADE,
     name TEXT NOT NULL,
